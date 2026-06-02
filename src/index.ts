@@ -87,6 +87,10 @@ export type {
 export {
   fetchPosts,
   fetchPost,
+  fetchSiteConfig,
+  type SiteConfig,
+  POWERED_BY_URL,
+  POWERED_BY_LABEL,
   getConfigFromMeta,
   resolveConfig,
   DEFAULT_ENDPOINT,
