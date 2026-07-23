@@ -1,6 +1,6 @@
 {
   "name": "@jamwidgets/solid",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "SolidJS primitives for Jamwidgets (forms, comments, reactions, subscriptions)",
   "repository": {
     "type": "git",
