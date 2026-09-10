@@ -42,7 +42,7 @@ import {
   PollController,
   AnnouncementsController,
   resolveConfig,
-  type JamWidgetsConfig,
+  type JamwidgetsConfig,
   type SubscribeState,
   type FormState,
   type ReactionsState,
@@ -61,7 +61,7 @@ import {
 
 // Re-export types from core
 export type {
-  JamWidgetsConfig,
+  JamwidgetsConfig,
   SubscribeState,
   FormState,
   ReactionsState,
@@ -95,13 +95,16 @@ export {
   resolveConfig,
   DEFAULT_ENDPOINT,
   API_PATH,
+  trackPageview,
+  initAnalytics,
+  type TrackPageviewOptions,
 } from "@jamwidgets/core";
 
 // =============================================================================
 // Config types - siteKey is optional when using meta tag fallback
 // =============================================================================
 
-type OptionalSiteKey<T extends JamWidgetsConfig> = Omit<T, "siteKey"> & {
+type OptionalSiteKey<T extends JamwidgetsConfig> = Omit<T, "siteKey"> & {
   /** Site key - optional if <meta name="jamwidgets-site-key"> is set */
   siteKey?: string;
 };
@@ -110,7 +113,7 @@ type OptionalSiteKey<T extends JamWidgetsConfig> = Omit<T, "siteKey"> & {
 // createSubscribe
 // ============================================================================
 
-export interface CreateSubscribeOptions extends OptionalSiteKey<JamWidgetsConfig> {}
+export interface CreateSubscribeOptions extends OptionalSiteKey<JamwidgetsConfig> {}
 
 export interface CreateSubscribeReturn {
   status: Accessor<ControllerStatus>;
@@ -166,7 +169,7 @@ export function createSubscribe(options: CreateSubscribeOptions): CreateSubscrib
 // createForm
 // ============================================================================
 
-export interface CreateFormOptions extends OptionalSiteKey<JamWidgetsConfig> {
+export interface CreateFormOptions extends OptionalSiteKey<JamwidgetsConfig> {
   /** Form slug/identifier */
   formSlug: string;
 }
@@ -229,7 +232,7 @@ export function createForm(options: CreateFormOptions): CreateFormReturn {
 // createReactions
 // ============================================================================
 
-export interface CreateReactionsOptions extends OptionalSiteKey<JamWidgetsConfig> {
+export interface CreateReactionsOptions extends OptionalSiteKey<JamwidgetsConfig> {
   /** Content identifier (e.g., post slug) */
   contentId: string;
   /** Auto-fetch reactions on mount (default: true) */
@@ -304,7 +307,7 @@ export function createReactions(options: CreateReactionsOptions): CreateReaction
 // createComments
 // ============================================================================
 
-export interface CreateCommentsOptions extends OptionalSiteKey<JamWidgetsConfig> {
+export interface CreateCommentsOptions extends OptionalSiteKey<JamwidgetsConfig> {
   /** Content identifier (e.g., post slug) */
   contentId: string;
   /** Auto-fetch comments on mount (default: true) */
@@ -379,7 +382,7 @@ export function createComments(options: CreateCommentsOptions): CreateCommentsRe
 // createWaitlist
 // ============================================================================
 
-export interface CreateWaitlistOptions extends OptionalSiteKey<JamWidgetsConfig> {}
+export interface CreateWaitlistOptions extends OptionalSiteKey<JamwidgetsConfig> {}
 
 export interface CreateWaitlistReturn {
   status: Accessor<ControllerStatus>;
@@ -436,7 +439,7 @@ export function createWaitlist(options: CreateWaitlistOptions): CreateWaitlistRe
 // createViews
 // ============================================================================
 
-export interface CreateViewsOptions extends OptionalSiteKey<JamWidgetsConfig> {
+export interface CreateViewsOptions extends OptionalSiteKey<JamwidgetsConfig> {
   /** Page identifier (e.g., slug or URL path) */
   pageId: string;
   /** Auto-record view on mount (default: true) */
@@ -504,7 +507,7 @@ export function createViews(options: CreateViewsOptions): CreateViewsReturn {
 // createFeedback
 // ============================================================================
 
-export interface CreateFeedbackOptions extends OptionalSiteKey<JamWidgetsConfig> {}
+export interface CreateFeedbackOptions extends OptionalSiteKey<JamwidgetsConfig> {}
 
 export interface CreateFeedbackReturn {
   status: Accessor<ControllerStatus>;
@@ -559,7 +562,7 @@ export function createFeedback(options: CreateFeedbackOptions): CreateFeedbackRe
 // createPoll
 // ============================================================================
 
-export interface CreatePollOptions extends OptionalSiteKey<JamWidgetsConfig> {
+export interface CreatePollOptions extends OptionalSiteKey<JamwidgetsConfig> {
   /** Poll slug */
   slug: string;
   /** Auto-fetch poll on mount (default: true) */
@@ -639,7 +642,7 @@ export function createPoll(options: CreatePollOptions): CreatePollReturn {
 // createAnnouncements
 // ============================================================================
 
-export interface CreateAnnouncementsOptions extends OptionalSiteKey<JamWidgetsConfig> {
+export interface CreateAnnouncementsOptions extends OptionalSiteKey<JamwidgetsConfig> {
   /** Auto-fetch announcements on mount (default: true) */
   autoFetch?: boolean;
 }

@@ -3,7 +3,7 @@
 > **Note:** This repo is a read-only mirror. Source lives in a private monorepo.
 > For issues/PRs, please open them here and we'll sync changes back.
 
-SolidJS primitives for [JamWidgets](https://jamwidgets.com) widgets - comments, reactions, forms, subscriptions, and more.
+SolidJS primitives for [Jamwidgets](https://jamwidgets.com) widgets - comments, reactions, forms, subscriptions, and more.
 
 ## Installation
 
