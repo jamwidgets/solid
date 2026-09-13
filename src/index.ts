@@ -80,6 +80,13 @@ export type {
   SeriphPost, // deprecated alias
   FetchPostsOptions,
   FetchPostOptions,
+  JamwidgetsGallery,
+  GalleryPhoto,
+  GallerySummary,
+  GalleryPage,
+  FetchGalleriesOptions,
+  FetchGalleryOptions,
+  FetchRandomPhotoOptions,
   ControllerStatus,
 } from "@jamwidgets/core";
 
@@ -87,6 +94,9 @@ export type {
 export {
   fetchPosts,
   fetchPost,
+  fetchGalleries,
+  fetchGallery,
+  fetchRandomPhoto,
   fetchSiteConfig,
   type SiteConfig,
   POWERED_BY_URL,
@@ -99,6 +109,9 @@ export {
   initAnalytics,
   type TrackPageviewOptions,
 } from "@jamwidgets/core";
+
+export { Gallery, GalleryIndex, RandomPhoto } from "./Galleries.jsx";
+export type { GalleryProps, GalleryIndexProps, RandomPhotoProps } from "./Galleries.jsx";
 
 // =============================================================================
 // Config types - siteKey is optional when using meta tag fallback

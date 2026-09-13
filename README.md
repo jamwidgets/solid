@@ -11,6 +11,16 @@ SolidJS primitives for [Jamwidgets](https://jamwidgets.com) widgets - comments, 
 npm install @jamwidgets/solid
 ```
 
+## Galleries
+
+```tsx
+import { Gallery, GalleryIndex, RandomPhoto } from "@jamwidgets/solid";
+
+<GalleryIndex siteKey="your-key" deepLink />
+<Gallery siteKey="your-key" slug="field-notes" tag="portraits" />
+<RandomPhoto siteKey="your-key" slug="field-notes" seed="homepage" />
+```
+
 Works with SolidJS 1.8+. Compatible with SolidStart, Astro, and standalone apps.
 
 ## Primitives
