@@ -112,6 +112,8 @@ export {
 
 export { Gallery, GalleryIndex, RandomPhoto } from "./Galleries.jsx";
 export type { GalleryProps, GalleryIndexProps, RandomPhotoProps } from "./Galleries.jsx";
+export { PoweredBy, createPoweredBy } from "./PoweredBy.jsx";
+export type { PoweredByProps } from "./PoweredBy.jsx";
 
 // =============================================================================
 // Config types - siteKey is optional when using meta tag fallback

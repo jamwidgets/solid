@@ -23,6 +23,21 @@ import { Gallery, GalleryIndex, RandomPhoto } from "@jamwidgets/solid";
 
 Works with SolidJS 1.8+. Compatible with SolidStart, Astro, and standalone apps.
 
+## Powered-by footer
+
+The primitives render no UI, so the footer is yours to place. Free sites must
+render `<PoweredBy />` below the widgets they build with these primitives; it
+renders nothing on Team, or until the site config loads. Gallery components
+include it already.
+
+```tsx
+import { PoweredBy } from "@jamwidgets/solid";
+
+<PoweredBy siteKey="your-key" />
+```
+
+`createPoweredBy({ siteKey })` returns the same flag if you render your own footer.
+
 ## Primitives
 
 ### createSubscribe
