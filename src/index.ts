@@ -108,6 +108,8 @@ export {
   trackPageview,
   initAnalytics,
   type TrackPageviewOptions,
+  JamwidgetsApiError,
+  isNotFound,
 } from "@jamwidgets/core";
 
 export { Gallery, GalleryIndex, RandomPhoto } from "./Galleries.jsx";
@@ -297,7 +299,8 @@ export function createReactions(options: CreateReactionsOptions): CreateReaction
 
     // Auto-fetch on mount (default: true)
     if (options.autoFetch !== false) {
-      controller.fetch();
+      // Failures are already in the returned state; don't also leak a rejection.
+      controller.fetch().catch(() => {});
     }
 
     onCleanup(unsubscribe);
@@ -376,7 +379,8 @@ export function createComments(options: CreateCommentsOptions): CreateCommentsRe
 
     // Auto-fetch on mount (default: true)
     if (options.autoFetch !== false) {
-      controller.fetch();
+      // Failures are already in the returned state; don't also leak a rejection.
+      controller.fetch().catch(() => {});
     }
 
     onCleanup(unsubscribe);
@@ -586,6 +590,7 @@ export interface CreatePollOptions extends OptionalSiteKey<JamwidgetsConfig> {
 
 export interface CreatePollReturn {
   poll: Accessor<PollWithResults | null>;
+  /** `notFound` when the poll doesn't exist or isn't published: render nothing. */
   status: Accessor<ControllerStatus>;
   error: Accessor<Error | null>;
   vote: (selectedOptions: string[]) => Promise<void>;
@@ -634,7 +639,8 @@ export function createPoll(options: CreatePollOptions): CreatePollReturn {
 
     // Auto-fetch on mount (default: true)
     if (options.autoFetch !== false) {
-      controller.fetch();
+      // Failures are already in the returned state; don't also leak a rejection.
+      controller.fetch().catch(() => {});
     }
 
     onCleanup(unsubscribe);
@@ -708,7 +714,8 @@ export function createAnnouncements(options: CreateAnnouncementsOptions): Create
 
     // Auto-fetch on mount (default: true)
     if (options.autoFetch !== false) {
-      controller.fetch();
+      // Failures are already in the returned state; don't also leak a rejection.
+      controller.fetch().catch(() => {});
     }
 
     onCleanup(unsubscribe);
