@@ -505,7 +505,8 @@ export function createViews(options: CreateViewsOptions): CreateViewsReturn {
 
     // Auto-record view on mount (default: true)
     if (options.autoRecord !== false) {
-      controller.record();
+      // Failures are already in the returned state; don't also leak a rejection.
+      controller.record().catch(() => {});
     }
 
     onCleanup(unsubscribe);
@@ -672,7 +673,7 @@ export interface CreateAnnouncementsReturn {
   announcements: Accessor<Announcement[]>;
   status: Accessor<ControllerStatus>;
   error: Accessor<Error | null>;
-  dismiss: (announcementId: number) => Promise<void>;
+  dismiss: (announcementId: string) => Promise<void>;
   refresh: () => Promise<void>;
 }
 
@@ -721,7 +722,7 @@ export function createAnnouncements(options: CreateAnnouncementsOptions): Create
     onCleanup(unsubscribe);
   });
 
-  const dismiss = async (announcementId: number) => {
+  const dismiss = async (announcementId: string) => {
     await controller.dismiss(announcementId);
   };
 
